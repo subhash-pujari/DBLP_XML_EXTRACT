@@ -2,9 +2,9 @@
 import codecs
 
 class saveToRawFiles():
-	
+
 	def __init__(self):
-		self.file = codecs.open("inproceedings.tsv","w")
+		self.file = codecs.open("inproceedings.tsv", "w")
 		print "init"
 
 	
@@ -14,7 +14,6 @@ class saveToRawFiles():
 		if "inproceedings" in keys:
 			self.saveInProceeding(tagDict)		
 		
-
 	def saveInProceeding(self, tagDict):
 
 		keys = tagDict.keys()
@@ -38,9 +37,8 @@ class saveToRawFiles():
 		year = tagDict['year']
 
 
-		line = title + '\t' + conf +'\t'+ year + '\t' + author +'\n'
+		line = title + '\t' + conf + '\t' + year + '\t' + author + '\n'
 		print line
 		line = line.encode("utf-8")		
-		
-		self.file.write(line)		
+		self.file.write(line)	
 
