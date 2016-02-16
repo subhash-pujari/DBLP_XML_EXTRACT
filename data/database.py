@@ -1,7 +1,7 @@
 import MySQLdb
 
-debug = False
-insertArticle = False
+debug = True
+insertArticle = True
 insertInProceedings = True
 insertProceedings = False
 
@@ -51,7 +51,8 @@ class DBHandler():
 
         if "number" in keys:
             number = articleDict["number"]
-            number = number.replace("")
+            print number
+            #number = number.replace("")
             values = values + ", '" +number.replace("'","\\") +"'"
             columns = columns + ", number"
 
@@ -126,6 +127,7 @@ class DBHandler():
         pass
 
     def insertArticle(self, articleDict):
+        """
         if insertArticle:
             databaseVar = self.createDatabaseVariable(articleDict)
             values = databaseVar[0]
@@ -133,13 +135,50 @@ class DBHandler():
             sql = "insert into article("+columns+") values (" + values + ");"
             if debug:
                 print sql
-            try:
-                self.cursor.execute(sql)
-                self.db.commit()
-            except:
-                print "exception"
-
+            self.cursor.execute(sql)
+            self.db.commit()
+        """
+        
+        if debug:
+            print "insert into articleDict"
+        if insertArticle:
+            databaseVar = self.createDatabaseVariable(articleDict)
+            values = databaseVar[0]
+            columns = databaseVar[1]
+            
+            if debug:
+                print columns
+                print values
+            
+        if "author" not in articleDict:
+            return
+        else:
+            print "author present"
+            
+        authors = articleDict["author"]
+        maxCount = len(authors)
+        if maxCount > 15:
+            maxCount = 15
+            
+        sql = "insert into article("+columns+") values (" + values + ");"
+        if debug:
+            print sql
+            
+        authorsSize = len(authors)
+        print "author size"
+        print authorsSize
+            
+        for i in range(15-authorsSize):
+            if authorsSize > 0:
+                authors.append('NULL')
+                
+        print "before insertion"
+            
+        self.cursor.execute(sql, (authors[0], authors[1],authors[2],authors[3],authors[4],authors[5],authors[6],authors[7],authors[8],authors[9],authors[10], authors[11],authors[12],authors[13],authors[14],))
+        self.db.commit()
+        
     def insertProceedings(self, proceedingsDict):
+        """
         if insertProceedings:
             databaseVar = self.createDatabaseVariable(proceedingsDict)
             values = databaseVar[0]
@@ -155,6 +194,49 @@ class DBHandler():
             try:
                 self.cursor.execute(sql, )
                 self.db.commit()
+            except:
+                print "exception"
+        """     
+                
+        if debug:
+            print "insert into inProceedings"
+            if insertInProceedings:
+                databaseVar = self.createDatabaseVariable(proceedingsDict)
+                values = databaseVar[0]
+                columns = databaseVar[1]
+                
+                if debug:
+                    print columns
+                    print values
+            
+            if "author" not in proceedingsDict:
+                return
+            else:
+                print "author present"
+            
+            authors = proceedingsDict["author"]
+            maxCount = len(authors)
+            if maxCount > 15:
+                maxCount = 15
+            
+            sql = "insert into proceedings("+columns+") values (" + values + ");"
+            if debug:
+                print sql
+            
+            authorsSize = len(authors)
+            print "author size"
+            print authorsSize
+            
+            for i in range(15-authorsSize):
+                if authorsSize > 0:
+                    authors.append('NULL')
+                
+            print "before insertion"
+            
+            try:
+                self.cursor.execute(sql, (authors[0], authors[1],authors[2],authors[3],authors[4],authors[5],authors[6],authors[7],authors[8],authors[9],authors[10], authors[11],authors[12],authors[13],authors[14],))
+                self.db.commit()
+                print "insertion done"
             except:
                 print "exception"
                 
@@ -180,7 +262,7 @@ class DBHandler():
             if maxCount > 15:
                 maxCount = 15
             
-            sql = "insert into inproceedings_unicode("+columns+") values (" + values + ");"
+            sql = "insert into inproceedings("+columns+") values (" + values + ");"
             if debug:
                 print sql
             

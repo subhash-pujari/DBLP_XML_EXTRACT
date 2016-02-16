@@ -1,13 +1,103 @@
-create table article ( id int auto_increment, title varchar(250), author1 varchar(250), author2 varchar(250), author3 varchar(250), author4 varchar(250), author5 varchar(250), author6 varchar(250), author7 varchar(250), author8 varchar(250), author9 varchar(250), author10 varchar(250), journal varchar(250), number varchar(250), volume varchar(250), cdrom varchar(250), pages varchar(250), crossref varchar(250), publisher varchar(250), url varchar(250), note varchar(250), editor varchar(250), booktitle varchar(250), cite varchar(250), year varchar(5));
-
 create table masterthesis ( id int auto_increment primary key, school varchar(250), title varchar(250), author1 varchar(250), author2 varchar(250), author3 varchar(250), author4 varchar(250), author5 varchar(250), author6 varchar(250), author7 varchar(250), author8 varchar(250),author9 varchar(250),author10 varchar(250), year varchar(250));
 
 create table book(id int auto_increment primary key, publisher varchar(250), isbn varchar(250), url varchar(250), title varchar(250), year varchar(250), author1 varchar(250), author2 varchar(250), author3 varchar(250), author4 varchar(250), author5 varchar(250), author6 varchar(250), author7 varchar, author8 varchar(250),author9 varchar(250),author10 varchar(250));
 
-create table proceedings(id int auto_increment primary key, isbn varchar(250), ee varchar(250), series varchar(250), journal varchar(250), volume varchar(250), year varchar(250), crossref varchar(250), publisher varchar(250), title varchar(250), url varchar(250), booktitle varchar(250), editor1 varchar(250), editor2 varchar(250), editor3 varchar(250), editor4 varchar(250), editor5 varchar(250), editor6 varchar(250), editor7 varchar(250), editor8 varchar(250), editor9 varchar(250), editor10  varchar(250));
-
-create table inproceedings_unicode(id int auto_increment primary key, ee varchar(250) character set utf8, number varchar(250), month varchar(250), year varchar(250), cdrom varchar(250) character set utf8, pages varchar(250), crossref varchar(250) character set utf8, url varchar(250) character set utf8, booktitle varchar(250) character set utf8, author1  varchar(250) character set utf8, author2  varchar(250) character set utf8, author3  varchar(250) character set utf8, author4 varchar(250) character set utf8, author5  varchar(250) character set utf8, author6  varchar(250) character set utf8, author7  varchar(250) character set utf8, author8  varchar(250) character set utf8, author9  varchar(250) character set utf8, author10  varchar(250) character set utf8, author11  varchar(250) character set utf8, author12  varchar(250) character set utf8, author13  varchar(250) character set utf8, author14  varchar(250) character set utf8, author15  varchar(250) character set utf8, note varchar(250) character set utf8, title varchar(250) character set utf8);
-
 create table phdthesis ( id int auto_increment primary key, publisher varchar(250), school varchar(250), note varchar(250), isbn varchar(250), author1  varchar(250), author2 varchar(250), author3 varchar(250), author4 varchar(250), author5 varchar(250), author6 varchar(250), author7 varchar(250), author8 varchar(250),author9 varchar(250),author10 varchar(250), ee varchar(250), series varchar(250), title varchar(250), number varchar(250), month varchar(250), volume varchar(250), url varchar(250), year varchar(250));
 
 create table www ( id int auto_increment primary key, author1 varchar(250), author2 varchar(250), author3 varchar(250), author4 varchar(250), author5 varchar(250), author6 varchar(250), author7 varchar(250), author8 varchar(250),author9 varchar(250),author10 varchar(250),ee varchar(250), booktitle varchar(250), title varchar(250), url varchar(250), editor varchar(250), year varchar(250));
+
+CREATE TABLE `article` (   
+    `id` int(11) NOT NULL AUTO_INCREMENT,   
+    `ee` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `number` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `month` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `year` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `cdrom` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `pages` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `crossref` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `url` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `booktitle` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `journal` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `author1` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author2` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author3` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author4` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author5` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author6` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author7` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author8` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author9` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author10` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author11` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author12` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author13` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author14` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author15` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `note` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `volume` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `title` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    PRIMARY KEY (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=136204 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `inproceedings` (   
+    `id` int(11) NOT NULL AUTO_INCREMENT,   
+    `ee` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `number` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `month` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `year` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `cdrom` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `pages` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `crossref` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `url` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `booktitle` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `journal` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `author1` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author2` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author3` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author4` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author5` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author6` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author7` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author8` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author9` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author10` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author11` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author12` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author13` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author14` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author15` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `note` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `volume` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `title` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    PRIMARY KEY (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=136204 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `proceedings` (   
+    `id` int(11) NOT NULL AUTO_INCREMENT,   
+    `ee` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `number` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `month` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `year` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `cdrom` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `pages` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,   
+    `crossref` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `url` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `booktitle` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `journal` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `author1` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author2` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author3` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author4` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author5` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author6` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author7` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author8` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author9` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author10` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author11` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author12` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author13` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author14` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `author15` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `note` varchar(250) CHARACTER SET utf8 DEFAULT NULL,
+    `volume` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    `title` varchar(250) CHARACTER SET utf8 DEFAULT NULL,   
+    PRIMARY KEY (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=136204 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
